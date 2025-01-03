@@ -2,17 +2,11 @@
 <div class="agentbuttons">
 <table><tr>
 <?php
-// Konekcija sa bazom
-$servername = "localhost";  // ili IP adresa servera
-$username = "alien_requestadm";  // tvoje korisničko ime za bazu
-$password = "o8^USIm]S05pd@$";  // tvoj password za bazu
-$dbname = "alien_requestapp";  // ime baze podataka
-
-// Kreiraj konekciju
-$connection = mysqli_connect($servername, $username, $password, $dbname);
+// Uključivanje fajla za konekciju sa bazom
+require("includes/connection.php");
 
 // Proveri konekciju
-if (!$connection) {
+if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
