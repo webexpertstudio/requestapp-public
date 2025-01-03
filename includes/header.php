@@ -1,4 +1,5 @@
-<?php date_default_timezone_set('America/New_York'); 
+<?php
+date_default_timezone_set('America/New_York'); 
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -7,6 +8,20 @@ error_reporting(E_ALL);
 // Dodaj namerno grešku
 //echo $undefined_variable;
 error_reporting(E_ALL & ~E_NOTICE);
+
+// Proverite da li je 'sess_agent_name' definisan pre nego što mu pristupite
+if (isset($_SESSION['sess_agent_name'])) {
+    $sess_agent_name = $_SESSION['sess_agent_name'];
+} else {
+    $sess_agent_name = null; // ili neka podrazumevana vrednost
+}
+
+// Proverite da li je 'sess_agent_status' definisan pre nego što mu pristupite
+if (isset($_SESSION['sess_agent_status'])) {
+    $sess_agent_status = $_SESSION['sess_agent_status'];
+} else {
+    $sess_agent_status = null; // ili neka podrazumevana vrednost
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"[]>
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">

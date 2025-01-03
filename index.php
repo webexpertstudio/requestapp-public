@@ -8,8 +8,8 @@ include_once ("includes/header.php");
 $_SESSION['reportfrom'] = date("Y-m-d");
 $_SESSION['reportto'] = date("Y-m-d");
 
-if($_SESSION['odobreno'] == "da")
-{
+// Proverite da li je 'odobreno' definisan pre nego što mu pristupite
+if (isset($_SESSION['odobreno']) && $_SESSION['odobreno'] == "da") {
 	switch ($_SESSION['sess_agent_status'])
 	{
 		case "admin":
@@ -34,9 +34,7 @@ if($_SESSION['odobreno'] == "da")
 			}	
 		break;
 	}
-}
-else
-{
+} else {
 	require ("login.php");
 }
 include ("includes/footer.php");
